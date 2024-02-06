@@ -670,6 +670,7 @@
     function positionAndTogglePopupBasedOnGlobeCoordinates(latitude, longitude, content) {
     // Convert latitude and longitude to 3D globe coordinates
     // This is highly dependent on the globe visualization library you're using
+    let globeRadius = 10;
     const globePosition = latLongToVector3(latitude, longitude, globeRadius);
 
     // Assuming you have a function to convert 3D globe positions to 2D screen coordinates
