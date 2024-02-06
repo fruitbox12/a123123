@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - 3D Globe Three.js with location pointer</title>
+  <title></title>
   
 
 </head>
@@ -667,7 +667,29 @@
         // Return the array of locations
         return locations;
     }
-    
+    function positionAndTogglePopupBasedOnGlobeCoordinates(latitude, longitude, content) {
+    // Convert latitude and longitude to 3D globe coordinates
+    // This is highly dependent on the globe visualization library you're using
+    const globePosition = latLongToVector3(latitude, longitude, globeRadius);
+
+    // Assuming you have a function to convert 3D globe positions to 2D screen coordinates
+    const screenCoordinates = convert3DPositionToScreenCoordinates(globePosition);
+
+    // Now, use the positionAndTogglePopup function to display the popup
+    // This assumes you've already defined a function like the one provided in the previous response
+    positionAndTogglePopup(screenCoordinates.x, screenCoordinates.y, content);
+}
+
+function convert3DPositionToScreenCoordinates(position) {
+    // Placeholder for conversion logic
+    // You will need to replace this with actual logic based on your visualization tool
+    // This might involve projecting the 3D coordinates onto the camera's view and then translating to screen space
+    return { x: position.x, y: position.y }; // This is a simplified placeholder
+}
+
+// Example usage of the newly defined function
+// positionAndTogglePopupBasedOnGlobeCoordinates(52.3759, 4.8975, "This is a test popup");
+
     // Assuming WebSocket messages provide latitude and longitude coordinates
     function updateFromWebSocketData(latitude, longitude) {
         // Example function to update the globe and popup based on coordinates
